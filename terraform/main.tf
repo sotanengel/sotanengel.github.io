@@ -31,8 +31,8 @@ resource "github_repository_ruleset" "protect_main" {
   }
 
   bypass_actors {
-    actor_id    = data.github_user.owner.id
-    actor_type  = "User"
+    actor_id    = 5 # Repository Admin role
+    actor_type  = "RepositoryRole"
     bypass_mode = "always"
   }
 
