@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sota Nagahara - Software Engineer | Rust / Python / AWS</title>
+  <meta name="description" content="Sota Nagahara（永原 颯太）はRust・Python・AWSを専門とするソフトウェアエンジニア。Rustlings日本語翻訳版(82 GitHub Stars)の作者。OSSコミュニティ貢献、サプライチェーンセキュリティ、AI活用に注力。">
+  <meta name="keywords" content="Sota Nagahara, 永原颯太, sotanengel, Software Engineer, Rust, Python, AWS, WebAssembly, rustlings-jp, OSS">
+  <meta name="author" content="Sota Nagahara">
+  <link rel="canonical" href="https://sotanengel.github.io/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sota Nagahara - Software Engineer | Rust / Python / AWS">
+  <meta property="og:description" content="Rustlings日本語翻訳版(82 Stars)の作者。Rust・Python・AWSを軸にOSS貢献とセキュリティ領域で活動するソフトウェアエンジニア。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sotanengel.github.io/">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/84895123?v=4">
+  <meta property="og:site_name" content="Sota Nagahara Portfolio">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@sota_eng_prog">
+  <meta name="twitter:title" content="Sota Nagahara - Software Engineer">
+  <meta name="twitter:description" content="Rustlings日本語翻訳版(82 Stars)の作者。Rust・Python・AWSを軸に活動するソフトウェアエンジニア。">
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/84895123?v=4">
+
+  <!-- JSON-LD Structured Data (AIO / AI Overview 対策) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Sota Nagahara",
+      "alternateName": ["永原颯太", "sotanengel"],
+      "url": "https://sotanengel.github.io/",
+      "image": "https://avatars.githubusercontent.com/u/84895123?v=4",
+      "jobTitle": "Software Engineer",
+      "description": "Rust・Python・AWSを専門とするソフトウェアエンジニア。Rustlings日本語翻訳版の作者として知られ、OSSコミュニティへの貢献やサプライチェーンセキュリティに注力。",
+      "knowsAbout": ["Rust", "Python", "AWS", "WebAssembly", "Supply Chain Security", "AI", "Docker", "Flutter"],
+      "sameAs": [
+        "https://github.com/sotanengel",
+        "https://qiita.com/sotanengel",
+        "https://zenn.dev/sotanengel",
+        "https://x.com/sota_eng_prog",
+        "https://www.linkedin.com/in/sota-nagahara-b707343ba/"
+      ],
+      "makesOffer": {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Software Engineering",
+          "description": "Rust・Python・AWSを中心としたソフトウェア開発"
+        }
+      }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Sota Nagahara の代表プロジェクト",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "SoftwareSourceCode",
+          "name": "rustlings-jp",
+          "description": "Rust公式演習問題集「Rustlings」の日本語翻訳版。GitHub 82 Stars。",
+          "codeRepository": "https://github.com/sotanengel/rustlings-jp",
+          "programmingLanguage": "Rust",
+          "author": { "@type": "Person", "name": "Sota Nagahara" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "SoftwareSourceCode",
+          "name": "effective-rustlings-jp",
+          "description": "書籍「Effective Rust」のTipsを手を動かしながら学べるRustlings形式の演習。",
+          "codeRepository": "https://github.com/sotanengel/effective-rustlings-jp",
+          "programmingLanguage": "Rust",
+          "author": { "@type": "Person", "name": "Sota Nagahara" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "SoftwareSourceCode",
+          "name": "OSS Supply Chain Monitor",
+          "description": "OSSサプライチェーン攻撃を検知するサーバーレスシステム。AWS Lambda・Step Functions・Claude Haiku（Amazon Bedrock）で構成。",
+          "author": { "@type": "Person", "name": "Sota Nagahara" }
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">SN</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#articles">Articles</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name">Sota Nagahara</h1>
+      <p class="hero-title">Software Engineer</p>
+      <p class="hero-desc">Rust / Python / AWS を軸に、OSSコミュニティへの貢献と<br>セキュリティ・AI 領域のプロダクト開発に取り組んでいます。</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">Projects</a>
+        <a href="https://github.com/sotanengel" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">82</span>
+          <span class="stat-label">GitHub Stars</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">37</span>
+          <span class="stat-label">Tech Articles</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">28</span>
+          <span class="stat-label">Public Repos</span>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-indicator" aria-label="下にスクロール">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Rustをはじめとするシステムプログラミング言語を得意とし、
+            OSSの日本語化や教育コンテンツの作成を通じてコミュニティに貢献しています。
+          </p>
+          <p>
+            代表的な取り組みとして、Rust公式演習問題集「Rustlings」の日本語翻訳版
+            <strong>rustlings-jp</strong>（GitHub 82 stars）を公開し、日本語話者のRust学習の敷居を下げる活動を行っています。
+          </p>
+          <p>
+            また、AWSを活用したサーバーレスアーキテクチャの設計や、
+            OSSサプライチェーン攻撃の検知システム構築など、
+            セキュリティとクラウドの領域にも注力しています。
+          </p>
+          <div class="about-highlights">
+            <div class="highlight">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <span>Rust Tokyo 2024 参加</span>
+            </div>
+            <div class="highlight">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01z"/></svg>
+              <span>Qiita 人気記事 69 Likes</span>
+            </div>
+            <div class="highlight">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              <span>crates.io パッケージ公開</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="https://avatars.githubusercontent.com/u/84895123?v=4" alt="Sota Nagahara" width="280" height="280" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span class="tag tag-primary">Rust</span>
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Dart</span>
+            <span class="tag">HTML / CSS</span>
+            <span class="tag">Shell</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Cloud & Infra</h3>
+          <div class="skill-tags">
+            <span class="tag tag-primary">AWS</span>
+            <span class="tag">Lambda</span>
+            <span class="tag">Step Functions</span>
+            <span class="tag">CDK / CloudFormation</span>
+            <span class="tag">DynamoDB</span>
+            <span class="tag">Docker</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Web & WASM</h3>
+          <div class="skill-tags">
+            <span class="tag tag-primary">WebAssembly</span>
+            <span class="tag">wasm-bindgen</span>
+            <span class="tag">Flutter</span>
+            <span class="tag">GitHub Pages</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Security & AI</h3>
+          <div class="skill-tags">
+            <span class="tag tag-primary">Supply Chain Security</span>
+            <span class="tag">Amazon Bedrock</span>
+            <span class="tag">GitHub Copilot</span>
+            <span class="tag">MCP Server</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+
+        <article class="project-card project-featured">
+          <div class="project-badge">Featured</div>
+          <h3>
+            <a href="https://github.com/sotanengel/rustlings-jp" target="_blank" rel="noopener">rustlings-jp</a>
+          </h3>
+          <p>Rust公式演習問題集「Rustlings」の日本語翻訳版。日本語話者がRustを学ぶ敷居を下げるために作成。</p>
+          <div class="project-meta">
+            <span class="project-lang"><span class="lang-dot rust"></span>Rust</span>
+            <span class="project-stars">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01z"/></svg>
+              82
+            </span>
+            <span class="project-forks">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9"/><path d="M12 12v3"/></svg>
+              10
+            </span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>
+            <a href="https://github.com/sotanengel/effective-rustlings-jp" target="_blank" rel="noopener">effective-rustlings-jp</a>
+          </h3>
+          <p>書籍「Effective Rust」のTipsを手を動かしながら学べるRustlings形式の演習。20日間シリーズとして連載。</p>
+          <div class="project-meta">
+            <span class="project-lang"><span class="lang-dot rust"></span>Rust</span>
+            <span class="project-stars">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01z"/></svg>
+              4
+            </span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>
+            <a href="https://zenn.dev/sotanengel/articles/322739e4b57ff2" target="_blank" rel="noopener">OSS Supply Chain Monitor</a>
+          </h3>
+          <p>axios侵害事件の翌日に構築したOSSサプライチェーン攻撃検知システム。AWS Lambda x Step Functions x Claude Haiku。月額$5-7で運用。</p>
+          <div class="project-meta">
+            <span class="project-lang"><span class="lang-dot python"></span>AWS / Python</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>
+            <a href="https://github.com/sotanengel/realtime-ai-security-camera-system" target="_blank" rel="noopener">AI Security Camera</a>
+          </h3>
+          <p>ベランダ向けローカルリアルタイムAI監視カメラシステム。Frigate + go2rtc + Flutter で構成。</p>
+          <div class="project-meta">
+            <span class="project-lang"><span class="lang-dot dart"></span>Dart / Flutter</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>
+            <a href="https://github.com/sotanengel/py-contract-check" target="_blank" rel="noopener">py-contract-check</a>
+          </h3>
+          <p>Rustで実装されたPython向け契約プログラミング（Design by Contract）ツール。事前条件・事後条件・不変条件をサポート。</p>
+          <div class="project-meta">
+            <span class="project-lang"><span class="lang-dot python"></span>Python / Rust</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>
+            <a href="https://github.com/sotanengel/python-fp-checker" target="_blank" rel="noopener">python-fp-checker</a>
+          </h3>
+          <p>Pythonコードが関数型プログラミングの原則に従っているかをチェックするRust製ツール。</p>
+          <div class="project-meta">
+            <span class="project-lang"><span class="lang-dot rust"></span>Rust</span>
+            <span class="project-stars">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01z"/></svg>
+              1
+            </span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>
+            <a href="https://github.com/sotanengel/typo_checker" target="_blank" rel="noopener">typo_checker</a>
+          </h3>
+          <p>タイポ検出用Rustクレート。crates.ioに公開済み。</p>
+          <div class="project-meta">
+            <span class="project-lang"><span class="lang-dot rust"></span>Rust</span>
+            <span class="project-stars">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01z"/></svg>
+              2
+            </span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>
+            <a href="https://github.com/sotanengel/bokunokangaeta-saikyono-container" target="_blank" rel="noopener">Secure AI Container</a>
+          </h3>
+          <p>生成AIを安全に活用するためのコンテナ環境。セキュアな分析環境を提供。</p>
+          <div class="project-meta">
+            <span class="project-lang"><span class="lang-dot shell"></span>Shell / Docker</span>
+          </div>
+        </article>
+
+      </div>
+      <div class="projects-more">
+        <a href="https://github.com/sotanengel?tab=repositories" target="_blank" rel="noopener" class="btn btn-outline">
+          View All Repositories
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section class="section section-alt" id="articles">
+    <div class="container">
+      <h2 class="section-title">Articles</h2>
+      <div class="articles-grid">
+
+        <article class="article-card article-featured">
+          <div class="article-platform">Qiita</div>
+          <h3><a href="https://qiita.com/sotanengel/items/e4ebb7ed4787fe60e4f4" target="_blank" rel="noopener">Rustの勉強の敷居を下げてみた ~演習問題集Rustlingsを翻訳して公開しました~</a></h3>
+          <p class="article-desc">Rust公式のRustlingsを日本語化した経緯と技術的なポイントを解説。</p>
+          <div class="article-meta">
+            <span class="article-likes">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              69
+            </span>
+            <span class="article-date">2024.09</span>
+            <div class="article-tags">
+              <span class="tag-sm">Rust</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-platform">Qiita</div>
+          <h3><a href="https://qiita.com/sotanengel/items/a796a5ad2f2d3526eee2" target="_blank" rel="noopener">Rust Tokyo 2024 参加してきた！ ~面白かった部分などまとめ~</a></h3>
+          <div class="article-meta">
+            <span class="article-likes">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              18
+            </span>
+            <span class="article-date">2024.12</span>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-platform">Qiita</div>
+          <h3><a href="https://qiita.com/sotanengel/items/d7d59325dfae7be22616" target="_blank" rel="noopener">Rust.Tokyoで友達100人作るためにRustacean用の名刺を作った！！</a></h3>
+          <div class="article-meta">
+            <span class="article-likes">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              18
+            </span>
+            <span class="article-date">2024.11</span>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-platform">Qiita</div>
+          <h3><a href="https://qiita.com/sotanengel/items/148c28a8b1e1eb7e51ca" target="_blank" rel="noopener">Rustでタイポチェックするクレート作った話 ~crates.ioでの公開まで~</a></h3>
+          <div class="article-meta">
+            <span class="article-likes">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              8
+            </span>
+            <span class="article-date">2024.11</span>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-platform">Qiita</div>
+          <h3><a href="https://qiita.com/sotanengel/items/b88bbda14ef6e4a33c3b" target="_blank" rel="noopener">【Rust x WASM】画像を爆速SEO対応できるようにした</a></h3>
+          <div class="article-meta">
+            <span class="article-likes">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              6
+            </span>
+            <span class="article-date">2024.12</span>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-platform">Qiita</div>
+          <h3><a href="https://qiita.com/sotanengel/items/78103dcfe2fa34f8815e" target="_blank" rel="noopener">【Effective-Rustlings-jp】2025年にEffectiveなRustの書き方を学びたいRustaceanに</a></h3>
+          <div class="article-meta">
+            <span class="article-likes">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              6
+            </span>
+            <span class="article-date">2024.12</span>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-platform">Zenn</div>
+          <h3><a href="https://zenn.dev/sotanengel/articles/322739e4b57ff2" target="_blank" rel="noopener">axiosが侵害された翌日、GitHub CopilotでOSSサプライチェーン監視ツールを作った</a></h3>
+          <div class="article-meta">
+            <span class="article-likes">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              3
+            </span>
+            <span class="article-date">2026.04</span>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-platform">Qiita</div>
+          <h3><a href="https://qiita.com/sotanengel/items/19da8ddb87186a1c7b70" target="_blank" rel="noopener">非エンジニアがプログラミングやBIツールを使うときに気をつけたい3つのこと</a></h3>
+          <div class="article-meta">
+            <span class="article-likes">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              6
+            </span>
+            <span class="article-date">2026.01</span>
+          </div>
+        </article>
+
+      </div>
+      <div class="articles-more">
+        <a href="https://qiita.com/sotanengel" target="_blank" rel="noopener" class="btn btn-outline">
+          View All on Qiita
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="contact-desc">お仕事のご相談やOSSへのコントリビューションなど、お気軽にご連絡ください。</p>
+      <div class="contact-links">
+        <a href="https://github.com/sotanengel" target="_blank" rel="noopener" class="contact-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://qiita.com/sotanengel" target="_blank" rel="noopener" class="contact-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Q</text></svg>
+          <span>Qiita</span>
+        </a>
+        <a href="https://zenn.dev/sotanengel" target="_blank" rel="noopener" class="contact-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Z</text></svg>
+          <span>Zenn</span>
+        </a>
+        <a href="https://x.com/sota_eng_prog" target="_blank" rel="noopener" class="contact-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span>X (Twitter)</span>
+        </a>
+        <a href="https://www.linkedin.com/in/sota-nagahara-b707343ba/" target="_blank" rel="noopener" class="contact-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Sota Nagahara. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
